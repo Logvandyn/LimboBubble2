@@ -24,6 +24,19 @@ public class Projectile : MonoBehaviour
             //this.gameObject.SetActive(false); doesnt actually destroy, just hides it
             Destroy(this.gameObject);
         }
+
+        if (collision.gameObject.tag == "Bubble")
+        {
+            this.GetComponent<Rigidbody>().isKinematic = true;
+        }
         
+    }
+
+    private void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.tag == "Bubble")
+        {
+            this.GetComponent<Rigidbody>().isKinematic = false;
+        }
     }
 }

@@ -8,7 +8,7 @@ using UnityEngine;
  */
 public class Enemy : MonoBehaviour
 {
-    public bool inBubble = false;
+    //public bool inBubble = false;
 
     private void Awake()
     {
@@ -34,19 +34,20 @@ public class Enemy : MonoBehaviour
     }
     public virtual void Move() //used in Update();
     {
-        if (inBubble == false)
-        {
+        //if (inBubble == false)
+        //{
             Vector3 tempPos = pos; 
             tempPos.x = Mathf.Sin(Time.time * Mathf.PI * 1) * 2;
             pos = tempPos;
-        }
+        //}
     }
 
     public void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "Bubble")
         {
-            inBubble = true;
+            this.GetComponent<Rigidbody>().isKinematic = true;
+            //inBubble = true;
         }
     }
 
@@ -54,7 +55,8 @@ public class Enemy : MonoBehaviour
     {
         if (collision.gameObject.tag == "Bubble")
         {
-            inBubble = false;
+            this.GetComponent<Rigidbody>().isKinematic = false;
+            //inBubble = false;
         }
     }
 
