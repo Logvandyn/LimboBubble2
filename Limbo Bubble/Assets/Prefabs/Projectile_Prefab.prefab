@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 987394054590468150}
   - component: {fileID: 7616350110388312188}
   - component: {fileID: 7007883567165576957}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Projectile_Prefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}

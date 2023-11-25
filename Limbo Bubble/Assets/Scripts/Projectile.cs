@@ -9,7 +9,7 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-    public int laserSpeed;
+    public int laserSpeed = 5;
 
     // Update is called once per frame
     void Update()
@@ -27,7 +27,8 @@ public class Projectile : MonoBehaviour
 
         if (collision.gameObject.tag == "Bubble")
         {
-            this.GetComponent<Rigidbody>().isKinematic = true;
+            //this.GetComponent<Rigidbody>().isKinematic = true;
+            laserSpeed = 0;
         }
         
     }
@@ -36,7 +37,8 @@ public class Projectile : MonoBehaviour
     {
         if (collision.gameObject.tag == "Bubble")
         {
-            this.GetComponent<Rigidbody>().isKinematic = false;
+            //this.GetComponent<Rigidbody>().isKinematic = false;
+            laserSpeed = 5;
         }
     }
 }

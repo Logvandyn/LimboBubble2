@@ -12,7 +12,7 @@ public class ProjShooter : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        InvokeRepeating("Shoot", 0f, 2f); //method, float time, float repeat
+        InvokeRepeating("Shoot", 0f, 0.5f); //method, float time, float repeat
     }
 
     public void Shoot() //spawns the bullet
