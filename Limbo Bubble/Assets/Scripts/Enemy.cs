@@ -4,11 +4,11 @@ using UnityEngine;
 
 /* Logan Van Dyne
  * 11/23/23
- * Enemy Movement & Projectile Shooting
+ * Enemy Movement
  */
 public class Enemy : MonoBehaviour
 {
-    //public bool inBubble = false;
+    public bool inBubble = false;
 
     private void Awake()
     {
@@ -34,20 +34,20 @@ public class Enemy : MonoBehaviour
     }
     public virtual void Move() //used in Update();
     {
-        //if (inBubble == false)
-        //{
+        if (inBubble == false)
+        {
             Vector3 tempPos = pos; 
             tempPos.x = Mathf.Sin(Time.time * Mathf.PI * 1) * 2;
             pos = tempPos;
-        //}
+        }
     }
 
     public void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "Bubble")
         {
-            this.GetComponent<Rigidbody>().isKinematic = true;
-            //inBubble = true;
+            //this.GetComponent<Rigidbody>().isKinematic = true;
+            inBubble = true;
         }
     }
 
@@ -55,8 +55,8 @@ public class Enemy : MonoBehaviour
     {
         if (collision.gameObject.tag == "Bubble")
         {
-            this.GetComponent<Rigidbody>().isKinematic = false;
-            //inBubble = false;
+            //this.GetComponent<Rigidbody>().isKinematic = false;
+            inBubble = false;
         }
     }
 
