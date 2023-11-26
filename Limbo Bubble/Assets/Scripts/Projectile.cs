@@ -22,13 +22,14 @@ public class Projectile : MonoBehaviour
         if (collision.gameObject.tag == "Ceiling")
         {
             //this.gameObject.SetActive(false); doesnt actually destroy, just hides it
+            Debug.Log("Destroy");
             Destroy(this.gameObject);
         }
 
         if (collision.gameObject.tag == "Bubble")
         {
             //this.GetComponent<Rigidbody>().isKinematic = true;
-            laserSpeed = 0;
+            //laserSpeed = 0;
         }
         
     }
