@@ -9,14 +9,27 @@ using UnityEngine;
 public class ProjShooter : MonoBehaviour
 {
     public GameObject projectile_prefab;
-    // Start is called before the first frame update
+    public float delay;
+    [HideInInspector] public bool timeoff;
+    float timer;
+
     void Start()
     {
-        InvokeRepeating("Shoot", 0f, 0.5f); //method, float time, float repeat
+        timer = delay;
+    }
+
+    void Update()
+    {
+        if(!timeoff)
+            timer = Mathf.Max(timer - Time.deltaTime, 0);
+
+        if (timer == 0)
+            Shoot();
     }
 
     public void Shoot() //spawns the bullet
     {
-        Instantiate(projectile_prefab, GetComponent<Transform>().position, GetComponent<Transform>().rotation);
+        Instantiate(projectile_prefab, transform.position + Vector3.up, transform.rotation);
+        timer = delay;
     }
 }

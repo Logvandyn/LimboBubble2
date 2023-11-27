@@ -10,36 +10,27 @@ using UnityEngine;
 public class Projectile : MonoBehaviour
 {
     public int laserSpeed = 5;
+    [HideInInspector] public bool timeoff;
 
-    // Update is called once per frame
     void Update()
     {
-        transform.position += Vector3.up * Time.deltaTime * laserSpeed;
+        if(!timeoff)
+            transform.position += Vector3.up * Time.deltaTime * laserSpeed;
     }
 
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "Ceiling")
-        {
-            //this.gameObject.SetActive(false); doesnt actually destroy, just hides it
-            Debug.Log("Destroy");
             Destroy(this.gameObject);
-        }
-
-        if (collision.gameObject.tag == "Bubble")
-        {
-            //this.GetComponent<Rigidbody>().isKinematic = true;
-            //laserSpeed = 0;
-        }
-        
     }
-
-    private void OnCollisionExit(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if (collision.gameObject.tag == "Bubble")
-        {
-            //this.GetComponent<Rigidbody>().isKinematic = false;
-            laserSpeed = 5;
-        }
+        if (other.gameObject.tag == "Bubble")
+            timeoff = true;
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.tag == "Bubble")
+            timeoff = false;
     }
 }
