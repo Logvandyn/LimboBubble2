@@ -13,6 +13,8 @@ public class ProjShooter : MonoBehaviour
     [HideInInspector] public bool timeoff;
     float timer;
 
+    public static ProjShooter instance;
+
     void Start()
     {
         timer = delay;

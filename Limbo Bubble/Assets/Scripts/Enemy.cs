@@ -13,6 +13,8 @@ public class Enemy : MonoBehaviour
     float time;
     ProjShooter projShooter;
 
+    public static Enemy instance;
+
     void Start()
     {
         projShooter = GetComponent<ProjShooter>();
@@ -45,7 +47,7 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    private void OnTriggerExit(Collider other)
+    private void OnTriggerExit(Collider other) //enemy is still frozen when bubble is removed...
     {
         if (other.gameObject.tag == "Bubble")
         {

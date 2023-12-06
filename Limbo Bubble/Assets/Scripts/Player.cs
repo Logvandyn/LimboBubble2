@@ -30,8 +30,16 @@ public class Player : MonoBehaviour
             else
             {
                 //Bubble.instance.End();
-                Destroy(BubbleObj.gameObject); //had to create a new object- attempted to destroy prefabs (not permitted)
+
+                //Destroy(BubbleObj.gameObject); //had to create a new object- attempted to destroy prefabs (not permitted)
+                //instead of destroying object, make it shrink incredibly fast! This way the collision exit still applies and doesn't cause enemy freezing
+                Bubble.instance.Duration = 0.1f;
                 BubbleActive = false;
+
+
+                //Enemy.instance.timeoff = false;
+                //ProjShooter.instance.timeoff = false;
+
             }
             
         }
