@@ -23,8 +23,8 @@ public class Player : MonoBehaviour
                 Vector3 mousePos = Input.mousePosition; //get mouse position
                 mousePos.z = 10; //lock spawn to a Z coordinate so it stays in the room
                 Vector3 worldPos = Camera.main.ScreenToWorldPoint(mousePos); //get the position of the mouse in the world
-                //Instantiate(BubblePrefab, worldPos, Quaternion.identity); //spawn bubble at mouse location
-                BubbleObj = Instantiate(BubblePrefab, worldPos, Quaternion.identity); //spawn bubble at mouse location
+                //Instantiate(BubblePrefab, worldPos, Quaternion.identity);
+                BubbleObj = Instantiate(BubblePrefab, worldPos, Quaternion.identity); //spawn bubble at mouse location (new obj to destroy)
                 BubbleActive = true;
             }
             else
