@@ -25,6 +25,7 @@ public class Bubble : MonoBehaviour
     void OnEnable()
     {
         // initialize  in OnEnable (Replace with awake or start depending on what happens with spawning)
+        instance = this;
         Scale = transform.localScale;
         t = 0;
     }
@@ -40,7 +41,12 @@ public class Bubble : MonoBehaviour
 
         if (t > 1) //if time is over, detroy bubble
         {
-            Destroy(this.gameObject); //(this) destroys the script, not the game bubble itself
+            End(); //(this) destroys the script, not the game bubble itself
         }
+    }
+
+    public void End()
+    {
+        Destroy(this.gameObject);
     }
 }
