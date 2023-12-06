@@ -36,7 +36,7 @@ public class Player : MonoBehaviour
                 Bubble.instance.Duration = 0.1f;
                 BubbleActive = false;
 
-
+                //Enemy Freezing Fix
                 //Enemy.instance.timeoff = false;
                 //ProjShooter.instance.timeoff = false;
 
